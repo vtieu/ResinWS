@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Dynamic hello world</title>
+	<link href="css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<style>
+	body {
+		font: 62.5% "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	</style>
+	<script>
+	$(function() {
+		$( "#okButton" ).button().click(function( event ) {
+			var helloRequest = { name: $("#name").val() };
+			var helloJson = JSON.stringify(helloRequest);
+			var helloParams = $.param({helloRequest: helloJson});
+	        jQuery.ajax({
+	        	type: "POST",
+	        	url: "hello_test/hello/json",
+	        	data: helloParams,
+	        	dataType: "json",
+	        	success: function(result) {
+	        		$("#hello").text(result.helloResult);
+	        	}
+	        });
+	        
+	    });
+	});
+	</script>
+</head>
+
+<body>
+
+<h1>Dynamic hello world example</h1>
+<h2 class="demoHeaders">Enter your name:</h2>
+<div>
+	<input id="name">
+</div>
+
+<button id="okButton">OK</button>
+
+<h2 class="demoHeaders" id="hello"></h2>
+
+</body>
