@@ -38,6 +38,22 @@ public class Hello {
 		result.helloResult = "Hello, " + request.name;
 		return result;
 	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("dbTest")
+	public String dbTest() {
+		MySQLTest access = new MySQLTest();
+		
+		String name = "";
+		try {
+			name = access.readDataBase();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "First country name = " + name;
+	}
 }  
 
 class HelloRequest {
