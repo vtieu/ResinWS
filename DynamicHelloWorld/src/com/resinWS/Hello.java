@@ -32,10 +32,10 @@ public class Hello {
 		try {
 			request = om.readValue(helloRequest, HelloRequest.class);
 		} catch (IOException e) {
-			request.name = "ERROR";
+			request.setName("ERROR");
 		}
 
-		result.helloResult = "Hello, " + request.name;
+		result.helloResult = "Hello, " + request.getName();
 		return result;
 	}
 	
@@ -57,8 +57,15 @@ public class Hello {
 }  
 
 class HelloRequest {
-	@JsonProperty("name")
-	public String name;
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
 
 class HelloResult {

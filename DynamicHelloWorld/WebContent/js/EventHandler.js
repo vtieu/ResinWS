@@ -31,4 +31,4 @@ function setUpClickHandler( ) {
 addEventHandler(window, "load", setUpClickHandler, false);
 
 
-alert("You click ok.");
+//alert("You click ok.");
