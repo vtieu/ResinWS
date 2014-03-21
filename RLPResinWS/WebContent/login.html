@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>ResinWS Login</title>
+	<link href="css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/login.js"></script>
+	<style>
+	body {
+		font: 75% "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	.loginBox {
+	    text-align: left;
+	    background-color:#cccccc;
+	    color:black;
+	    font-weight:bold;
+	    position: absolute;
+	    left: 50%;
+	    top: 50%; 
+	    margin-left: -140px;
+	    margin-top: -75px;
+	    border:2px solid;
+		border-radius:25px;
+		box-shadow: 10px 10px 5px #888888;
+		padding: 10px;
+	}
+	.loginInput {
+		margin-right: 15px; 
+		text-align: right;
+	}
+	</style>
+	
+	<script>
+		initLogin();
+	</script>
+</head>
+
+<body>
+
+	<div class="loginBox">
+		<h2 style="text-align: center;">Login</h2>
+		<div class="loginInput">User name:<input id="name" style="margin-left: 5px; border: 1px solid"/></div>
+		<div class="loginInput">Password:<input id="password" type="password" style="margin-left: 5px; border: 1px solid" /></div>
+		
+		<div id="loginMessage" style="margin-top: 5px; margin-left: 10px"></div>
+		
+		<div style="margin-top: 5px;float: right; margin-right: 15px;"><button id="loginButton">Login</button></div>
+	</div>
+
+</body>
