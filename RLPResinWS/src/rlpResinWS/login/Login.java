@@ -1,6 +1,7 @@
 package rlpResinWS.login;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -8,6 +9,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import rlpResinWS.db.DBLogin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,10 +37,9 @@ public class Login {
 			return result;
 		}
 		
-		if (request.getUserName().equals("user") &&
-			request.getPassword().equals("password"))
+		if (DBLogin.login(request.getUserName(), request.getPassword()))
 		{
-			result.sessionId = "1";
+			result.sessionId = UUID.randomUUID().toString();
 		}
 		else
 		{
